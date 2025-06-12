@@ -1,0 +1,9 @@
+# Ne pas envoyer ces fichiers sur GitHub
+config.py
+user_logs.json
+
+# Environnements virtuels
+env/
+venv/
+__pycache__/
+*.pyc

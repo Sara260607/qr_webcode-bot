@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <title>Logs Utilisateurs</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ddd; padding: 8px; }
+        th { background-color: #f2f2f2; }
+    </style>
+</head>
+<body>
+    <h1>Logs des Utilisateurs du Bot</h1>
+    {% if logs %}
+    <table>
+        <tr>
+            <th>ID Telegram</th>
+            <th>Nom d'utilisateur</th>
+            <th>Lien généré</th>
+            <th>Date (UTC)</th>
+        </tr>
+        {% for log in logs %}
+        <tr>
+            <td>{{ log.get('user_id', '') }}</td>
+            <td>{{ log.get('username', '') }}</td>
+            <td><a href="{{ log.get('url', '') }}" target="_blank">{{ log.get('url', '') }}</a></td>
+            <td>{{ log.get('timestamp', '') }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <p>Aucun log disponible.</p>
+    {% endif %}
+</body>
+</html>

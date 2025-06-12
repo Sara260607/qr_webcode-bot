@@ -1,5 +1,4 @@
 import qrcode
-import re
 
 def generer_qr_code(nom, data, save_local=False):
     qr = qrcode.QRCode(
@@ -13,10 +12,8 @@ def generer_qr_code(nom, data, save_local=False):
     img = qr.make_image(fill_color="black", back_color="white")
 
     if save_local:
-        # Nettoie le nom pour créer un nom de fichier valide
-        nom_nettoye = re.sub(r'[^a-zA-Z0-9]', '_', nom)
-        file_name = f"qr_{nom_nettoye}.png"
-        img.save(file_name)
-        return file_name
+        nom_fichier = f"qr_{nom.replace('https://', '').replace('/', '_')}.png"
+        img.save(nom_fichier)
+        return nom_fichier
     else:
         return img
