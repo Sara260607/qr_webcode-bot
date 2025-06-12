@@ -1,1 +1,1 @@
-worker: python bot.py
+worker: python qr_code_bot.py

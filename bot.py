@@ -7,7 +7,6 @@ import os
 import os
 TELEGRAM_TOKEN = os.environ.get("TELEGRAM_TOKEN")
 
-
 def start(update: Update, context: CallbackContext):
     update.message.reply_text(
         "🎉 Bienvenue !\n\n"
